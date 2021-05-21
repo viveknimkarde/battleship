@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-const elevation = 2.0;
+const elevation = 5.0;
 final boxDecoration = BoxDecoration(
   borderRadius: BorderRadius.circular(6.0),
   color: Colors.grey.shade50,
@@ -16,15 +16,15 @@ final boxDecoration = BoxDecoration(
         spreadRadius: 0.0,
         blurRadius: elevation / 2.0,
         offset: const Offset(3.0, 3.0)),
-    BoxShadow(
+    const BoxShadow(
         color: Colors.white,
         spreadRadius: 2.0,
         blurRadius: elevation,
-        offset: const Offset(-3.0, -3.0)),
-    BoxShadow(
+        offset: Offset(-3.0, -3.0)),
+    const BoxShadow(
         color: Colors.white,
         spreadRadius: 2.0,
         blurRadius: elevation / 2,
-        offset: const Offset(-3.0, -3.0)),
+        offset: Offset(-3.0, -3.0)),
   ],
 );

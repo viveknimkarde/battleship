@@ -3,10 +3,7 @@ import 'package:battleship/models.dart';
 import 'package:just_audio/just_audio.dart';
 
 Coordinate getCoordinate(String location) {
-  if (location.length == 2) {
-    throw ("incomplete location");
-  }
-  int xCoord = kXLabels.indexOf(location[1]);
+  int xCoord = kXLabels.indexOf(location.substring(1));
   int yCoord = kYLabels.indexOf(location[0]);
   return Coordinate(x: xCoord, y: yCoord);
 }

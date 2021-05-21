@@ -5,16 +5,16 @@ class HitResultTile extends StatelessWidget {
   const HitResultTile({
     Key? key,
     required this.boardState,
-    required this.coord,
+    required this.targetLoc,
   }) : super(key: key);
 
   final BoardState boardState;
-  final Coordinate coord;
+  final Coordinate targetLoc;
 
   @override
   Widget build(BuildContext context) {
-    bool isHit = boardState.hits.any((element) => element == coord);
-    bool isMiss = boardState.misses.any((element) => element == coord);
+    bool isHit = boardState.hits.any((element) => element == targetLoc);
+    bool isMiss = boardState.misses.any((element) => element == targetLoc);
     return Center(
         child: Text(
       (isHit ? 'X' : '') + (isMiss ? 'O' : ''),

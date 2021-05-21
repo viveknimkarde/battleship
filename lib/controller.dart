@@ -1,63 +1,57 @@
-import 'package:battleship/boardstate.dart';
+import 'package:battleship/data.dart';
+import 'package:battleship/models.dart';
+import 'package:battleship/util.dart';
+import 'package:just_audio/just_audio.dart';
 import 'package:riverpod/riverpod.dart';
-
-const List<String> xLabels = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
-const List<String> yLabels = [
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  "10"
-];
-
-Coordinate getCoordinate(String location) {
-  int xCoord = xLabels.indexOf(location[0]);
-  int yCoord = yLabels.indexOf(location[1]);
-  return Coordinate(x: xCoord, y: yCoord);
-}
-
-int twoDToOneD(Coordinate coord, int xlen) {
-  return (coord.x * xlen) + coord.y;
-}
-
-Coordinate oneDToTwoD(int index, int xlen) {
-  return Coordinate(x: (index ~/ xlen), y: index % xlen);
-}
 
 class BattleFieldState extends StateNotifier<BoardState> {
   BattleFieldState([BoardState? initialTodos])
       : super(
             initialTodos ?? const BoardState(ships: [], hits: [], misses: []));
 
+  final player = AudioPlayer();
+
   bool bomb(String location) {
+    //Get Coordinates from string Location
     Coordinate locCoordinates = getCoordinate(location);
-    // did it hit the ship
+
+    //Check if coordinates of bomb matches any ship's coordinates
     bool isHit = state.ships.any((ship) {
-      return List<Coordinate>.generate(ship.length, (i) {
-        if (ship.orientation == 'vertical') {
-          return Coordinate(x: ship.start.x, y: ship.start.y + i);
-        } else {
-          return Coordinate(x: ship.start.x + i, y: ship.start.y);
-        }
-      }).any((element) => element == locCoordinates);
+      return getAllShipCoordinates(ship, null)
+          .any((element) => element == locCoordinates);
     });
+
+    // Update state of board with hits and misses
+
     if (isHit) {
       state = state.copyWith(hits: [...state.hits, locCoordinates]);
+      playSound(player, 'assets/hit.wav');
     } else {
       state = state.copyWith(misses: [...state.misses, locCoordinates]);
+      playSound(player, 'assets/miss.wav');
     }
+
     return isHit;
   }
 
-  void moveShip(Ship ship, Coordinate iCoordinates) {
+  void moveShip(ShipInfo ship, Coordinate iCoordinates) {
+    //Change Coordinates of the ship based on drag coordinates
+
     state = state.copyWith(ships: [
       ...state.ships.where((element) => element.id != ship.id),
       ship.copyWith(start: iCoordinates)
+    ]);
+  }
+
+  void rotateShip(ShipInfo ship) {
+    //Change orientation of the ship between when a user double taps on a ship
+
+    state = state.copyWith(ships: [
+      ...state.ships.where((element) => element.id != ship.id),
+      ship.copyWith(
+          orientation: ship.orientation == ShipOrientation.vertical
+              ? ShipOrientation.horizontal
+              : ShipOrientation.vertical)
     ]);
   }
 }

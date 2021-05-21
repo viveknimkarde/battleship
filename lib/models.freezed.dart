@@ -1,7 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 // ignore_for_file: unused_element, deprecated_member_use, deprecated_member_use_from_same_package, use_function_type_syntax_for_parameters, unnecessary_const, avoid_init_to_null, invalid_override_different_default_values_named, prefer_expression_function_bodies, annotate_overrides
 
-part of 'boardstate.dart';
+part of 'models.dart';
 
 // **************************************************************************
 // FreezedGenerator
@@ -17,7 +17,7 @@ class _$BoardStateTearOff {
   const _$BoardStateTearOff();
 
   _BoardState call(
-      {required List<Ship> ships,
+      {required List<ShipInfo> ships,
       required List<Coordinate> hits,
       required List<Coordinate> misses}) {
     return _BoardState(
@@ -33,7 +33,7 @@ const $BoardState = _$BoardStateTearOff();
 
 /// @nodoc
 mixin _$BoardState {
-  List<Ship> get ships => throw _privateConstructorUsedError;
+  List<ShipInfo> get ships => throw _privateConstructorUsedError;
   List<Coordinate> get hits => throw _privateConstructorUsedError;
   List<Coordinate> get misses => throw _privateConstructorUsedError;
 
@@ -47,7 +47,8 @@ abstract class $BoardStateCopyWith<$Res> {
   factory $BoardStateCopyWith(
           BoardState value, $Res Function(BoardState) then) =
       _$BoardStateCopyWithImpl<$Res>;
-  $Res call({List<Ship> ships, List<Coordinate> hits, List<Coordinate> misses});
+  $Res call(
+      {List<ShipInfo> ships, List<Coordinate> hits, List<Coordinate> misses});
 }
 
 /// @nodoc
@@ -68,7 +69,7 @@ class _$BoardStateCopyWithImpl<$Res> implements $BoardStateCopyWith<$Res> {
       ships: ships == freezed
           ? _value.ships
           : ships // ignore: cast_nullable_to_non_nullable
-              as List<Ship>,
+              as List<ShipInfo>,
       hits: hits == freezed
           ? _value.hits
           : hits // ignore: cast_nullable_to_non_nullable
@@ -87,7 +88,8 @@ abstract class _$BoardStateCopyWith<$Res> implements $BoardStateCopyWith<$Res> {
           _BoardState value, $Res Function(_BoardState) then) =
       __$BoardStateCopyWithImpl<$Res>;
   @override
-  $Res call({List<Ship> ships, List<Coordinate> hits, List<Coordinate> misses});
+  $Res call(
+      {List<ShipInfo> ships, List<Coordinate> hits, List<Coordinate> misses});
 }
 
 /// @nodoc
@@ -110,7 +112,7 @@ class __$BoardStateCopyWithImpl<$Res> extends _$BoardStateCopyWithImpl<$Res>
       ships: ships == freezed
           ? _value.ships
           : ships // ignore: cast_nullable_to_non_nullable
-              as List<Ship>,
+              as List<ShipInfo>,
       hits: hits == freezed
           ? _value.hits
           : hits // ignore: cast_nullable_to_non_nullable
@@ -130,7 +132,7 @@ class _$_BoardState implements _BoardState {
       {required this.ships, required this.hits, required this.misses});
 
   @override
-  final List<Ship> ships;
+  final List<ShipInfo> ships;
   @override
   final List<Coordinate> hits;
   @override
@@ -168,12 +170,12 @@ class _$_BoardState implements _BoardState {
 
 abstract class _BoardState implements BoardState {
   const factory _BoardState(
-      {required List<Ship> ships,
+      {required List<ShipInfo> ships,
       required List<Coordinate> hits,
       required List<Coordinate> misses}) = _$_BoardState;
 
   @override
-  List<Ship> get ships => throw _privateConstructorUsedError;
+  List<ShipInfo> get ships => throw _privateConstructorUsedError;
   @override
   List<Coordinate> get hits => throw _privateConstructorUsedError;
   @override
@@ -331,16 +333,16 @@ abstract class _Coordinate implements Coordinate {
 }
 
 /// @nodoc
-class _$ShipTearOff {
-  const _$ShipTearOff();
+class _$ShipInfoTearOff {
+  const _$ShipInfoTearOff();
 
-  _Ship call(
+  _ShipInfo call(
       {required String id,
       required String image,
       required int length,
       required Coordinate start,
-      required String orientation}) {
-    return _Ship(
+      required ShipOrientation orientation}) {
+    return _ShipInfo(
       id: id,
       image: image,
       length: length,
@@ -351,41 +353,42 @@ class _$ShipTearOff {
 }
 
 /// @nodoc
-const $Ship = _$ShipTearOff();
+const $ShipInfo = _$ShipInfoTearOff();
 
 /// @nodoc
-mixin _$Ship {
+mixin _$ShipInfo {
   String get id => throw _privateConstructorUsedError;
   String get image => throw _privateConstructorUsedError;
   int get length => throw _privateConstructorUsedError;
   Coordinate get start => throw _privateConstructorUsedError;
-  String get orientation => throw _privateConstructorUsedError;
+  ShipOrientation get orientation => throw _privateConstructorUsedError;
 
   @JsonKey(ignore: true)
-  $ShipCopyWith<Ship> get copyWith => throw _privateConstructorUsedError;
+  $ShipInfoCopyWith<ShipInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }
 
 /// @nodoc
-abstract class $ShipCopyWith<$Res> {
-  factory $ShipCopyWith(Ship value, $Res Function(Ship) then) =
-      _$ShipCopyWithImpl<$Res>;
+abstract class $ShipInfoCopyWith<$Res> {
+  factory $ShipInfoCopyWith(ShipInfo value, $Res Function(ShipInfo) then) =
+      _$ShipInfoCopyWithImpl<$Res>;
   $Res call(
       {String id,
       String image,
       int length,
       Coordinate start,
-      String orientation});
+      ShipOrientation orientation});
 
   $CoordinateCopyWith<$Res> get start;
 }
 
 /// @nodoc
-class _$ShipCopyWithImpl<$Res> implements $ShipCopyWith<$Res> {
-  _$ShipCopyWithImpl(this._value, this._then);
+class _$ShipInfoCopyWithImpl<$Res> implements $ShipInfoCopyWith<$Res> {
+  _$ShipInfoCopyWithImpl(this._value, this._then);
 
-  final Ship _value;
+  final ShipInfo _value;
   // ignore: unused_field
-  final $Res Function(Ship) _then;
+  final $Res Function(ShipInfo) _then;
 
   @override
   $Res call({
@@ -415,7 +418,7 @@ class _$ShipCopyWithImpl<$Res> implements $ShipCopyWith<$Res> {
       orientation: orientation == freezed
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ShipOrientation,
     ));
   }
 
@@ -428,29 +431,29 @@ class _$ShipCopyWithImpl<$Res> implements $ShipCopyWith<$Res> {
 }
 
 /// @nodoc
-abstract class _$ShipCopyWith<$Res> implements $ShipCopyWith<$Res> {
-  factory _$ShipCopyWith(_Ship value, $Res Function(_Ship) then) =
-      __$ShipCopyWithImpl<$Res>;
+abstract class _$ShipInfoCopyWith<$Res> implements $ShipInfoCopyWith<$Res> {
+  factory _$ShipInfoCopyWith(_ShipInfo value, $Res Function(_ShipInfo) then) =
+      __$ShipInfoCopyWithImpl<$Res>;
   @override
   $Res call(
       {String id,
       String image,
       int length,
       Coordinate start,
-      String orientation});
+      ShipOrientation orientation});
 
   @override
   $CoordinateCopyWith<$Res> get start;
 }
 
 /// @nodoc
-class __$ShipCopyWithImpl<$Res> extends _$ShipCopyWithImpl<$Res>
-    implements _$ShipCopyWith<$Res> {
-  __$ShipCopyWithImpl(_Ship _value, $Res Function(_Ship) _then)
-      : super(_value, (v) => _then(v as _Ship));
+class __$ShipInfoCopyWithImpl<$Res> extends _$ShipInfoCopyWithImpl<$Res>
+    implements _$ShipInfoCopyWith<$Res> {
+  __$ShipInfoCopyWithImpl(_ShipInfo _value, $Res Function(_ShipInfo) _then)
+      : super(_value, (v) => _then(v as _ShipInfo));
 
   @override
-  _Ship get _value => super._value as _Ship;
+  _ShipInfo get _value => super._value as _ShipInfo;
 
   @override
   $Res call({
@@ -460,7 +463,7 @@ class __$ShipCopyWithImpl<$Res> extends _$ShipCopyWithImpl<$Res>
     Object? start = freezed,
     Object? orientation = freezed,
   }) {
-    return _then(_Ship(
+    return _then(_ShipInfo(
       id: id == freezed
           ? _value.id
           : id // ignore: cast_nullable_to_non_nullable
@@ -480,15 +483,15 @@ class __$ShipCopyWithImpl<$Res> extends _$ShipCopyWithImpl<$Res>
       orientation: orientation == freezed
           ? _value.orientation
           : orientation // ignore: cast_nullable_to_non_nullable
-              as String,
+              as ShipOrientation,
     ));
   }
 }
 
 /// @nodoc
 
-class _$_Ship implements _Ship {
-  const _$_Ship(
+class _$_ShipInfo implements _ShipInfo {
+  const _$_ShipInfo(
       {required this.id,
       required this.image,
       required this.length,
@@ -504,17 +507,17 @@ class _$_Ship implements _Ship {
   @override
   final Coordinate start;
   @override
-  final String orientation;
+  final ShipOrientation orientation;
 
   @override
   String toString() {
-    return 'Ship(id: $id, image: $image, length: $length, start: $start, orientation: $orientation)';
+    return 'ShipInfo(id: $id, image: $image, length: $length, start: $start, orientation: $orientation)';
   }
 
   @override
   bool operator ==(dynamic other) {
     return identical(this, other) ||
-        (other is _Ship &&
+        (other is _ShipInfo &&
             (identical(other.id, id) ||
                 const DeepCollectionEquality().equals(other.id, id)) &&
             (identical(other.image, image) ||
@@ -539,17 +542,17 @@ class _$_Ship implements _Ship {
 
   @JsonKey(ignore: true)
   @override
-  _$ShipCopyWith<_Ship> get copyWith =>
-      __$ShipCopyWithImpl<_Ship>(this, _$identity);
+  _$ShipInfoCopyWith<_ShipInfo> get copyWith =>
+      __$ShipInfoCopyWithImpl<_ShipInfo>(this, _$identity);
 }
 
-abstract class _Ship implements Ship {
-  const factory _Ship(
+abstract class _ShipInfo implements ShipInfo {
+  const factory _ShipInfo(
       {required String id,
       required String image,
       required int length,
       required Coordinate start,
-      required String orientation}) = _$_Ship;
+      required ShipOrientation orientation}) = _$_ShipInfo;
 
   @override
   String get id => throw _privateConstructorUsedError;
@@ -560,8 +563,9 @@ abstract class _Ship implements Ship {
   @override
   Coordinate get start => throw _privateConstructorUsedError;
   @override
-  String get orientation => throw _privateConstructorUsedError;
+  ShipOrientation get orientation => throw _privateConstructorUsedError;
   @override
   @JsonKey(ignore: true)
-  _$ShipCopyWith<_Ship> get copyWith => throw _privateConstructorUsedError;
+  _$ShipInfoCopyWith<_ShipInfo> get copyWith =>
+      throw _privateConstructorUsedError;
 }

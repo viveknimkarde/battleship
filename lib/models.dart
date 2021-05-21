@@ -1,11 +1,12 @@
+import 'package:battleship/data.dart';
 import 'package:freezed_annotation/freezed_annotation.dart';
 
-part 'boardstate.freezed.dart';
+part 'models.freezed.dart';
 
 @freezed
 abstract class BoardState with _$BoardState {
   const factory BoardState(
-      {required List<Ship> ships,
+      {required List<ShipInfo> ships,
       required List<Coordinate> hits,
       required List<Coordinate> misses}) = _BoardState;
 }
@@ -16,11 +17,11 @@ abstract class Coordinate with _$Coordinate {
 }
 
 @freezed
-abstract class Ship with _$Ship {
-  const factory Ship(
+abstract class ShipInfo with _$ShipInfo {
+  const factory ShipInfo(
       {required String id,
       required String image,
       required int length,
       required Coordinate start,
-      required String orientation}) = _Ship;
+      required ShipOrientation orientation}) = _ShipInfo;
 }
